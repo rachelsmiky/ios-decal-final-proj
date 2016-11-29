@@ -8,22 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		B682CA7B1DED65C200D5607C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA7A1DED65C200D5607C /* AppDelegate.swift */; };
-		B682CA7D1DED65C200D5607C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA7C1DED65C200D5607C /* ViewController.swift */; };
+		B682CA7D1DED65C200D5607C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA7C1DED65C200D5607C /* MapViewController.swift */; };
 		B682CA801DED65C200D5607C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B682CA7E1DED65C200D5607C /* Main.storyboard */; };
 		B682CA831DED65C200D5607C /* Grubuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B682CA811DED65C200D5607C /* Grubuddy.xcdatamodeld */; };
 		B682CA851DED65C200D5607C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B682CA841DED65C200D5607C /* Assets.xcassets */; };
 		B682CA881DED65C200D5607C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B682CA861DED65C200D5607C /* LaunchScreen.storyboard */; };
+		B682CA911DED6B3700D5607C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B682CA901DED6B3700D5607C /* CoreLocation.framework */; };
+		B682CA931DED6BF600D5607C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B682CA921DED6BF600D5607C /* MapKit.framework */; };
+		B682CA951DED6EA100D5607C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA941DED6EA100D5607C /* LoginViewController.swift */; };
+		B682CA971DED6ECC00D5607C /* MeetingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */; };
+		B682CA9C1DED71E900D5607C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA981DED71E900D5607C /* User+CoreDataClass.swift */; };
+		B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */; };
+		B682CA9E1DED71E900D5607C /* Meeting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9A1DED71E900D5607C /* Meeting+CoreDataClass.swift */; };
+		B682CA9F1DED71E900D5607C /* Meeting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B682CA771DED65C200D5607C /* Grubuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grubuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B682CA7A1DED65C200D5607C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B682CA7C1DED65C200D5607C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B682CA7C1DED65C200D5607C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B682CA7F1DED65C200D5607C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B682CA821DED65C200D5607C /* Grubuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Grubuddy.xcdatamodel; sourceTree = "<group>"; };
 		B682CA841DED65C200D5607C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B682CA871DED65C200D5607C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B682CA891DED65C200D5607C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B682CA901DED6B3700D5607C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B682CA921DED6BF600D5607C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B682CA941DED6EA100D5607C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
+		B682CA981DED71E900D5607C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B682CA9A1DED71E900D5607C /* Meeting+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B682CA931DED6BF600D5607C /* MapKit.framework in Frameworks */,
+				B682CA911DED6B3700D5607C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +60,7 @@
 			children = (
 				B682CA791DED65C200D5607C /* Grubuddy */,
 				B682CA781DED65C200D5607C /* Products */,
+				B682CA8F1DED6B3700D5607C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +75,9 @@
 		B682CA791DED65C200D5607C /* Grubuddy */ = {
 			isa = PBXGroup;
 			children = (
+				B682CAA11DED729000D5607C /* Controllers */,
+				B682CAA01DED727700D5607C /* Model */,
 				B682CA7A1DED65C200D5607C /* AppDelegate.swift */,
-				B682CA7C1DED65C200D5607C /* ViewController.swift */,
 				B682CA7E1DED65C200D5607C /* Main.storyboard */,
 				B682CA841DED65C200D5607C /* Assets.xcassets */,
 				B682CA861DED65C200D5607C /* LaunchScreen.storyboard */,
@@ -65,6 +85,36 @@
 				B682CA811DED65C200D5607C /* Grubuddy.xcdatamodeld */,
 			);
 			path = Grubuddy;
+			sourceTree = "<group>";
+		};
+		B682CA8F1DED6B3700D5607C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B682CA921DED6BF600D5607C /* MapKit.framework */,
+				B682CA901DED6B3700D5607C /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B682CAA01DED727700D5607C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B682CA981DED71E900D5607C /* User+CoreDataClass.swift */,
+				B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */,
+				B682CA9A1DED71E900D5607C /* Meeting+CoreDataClass.swift */,
+				B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B682CAA11DED729000D5607C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B682CA7C1DED65C200D5607C /* MapViewController.swift */,
+				B682CA941DED6EA100D5607C /* LoginViewController.swift */,
+				B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +189,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B682CA7D1DED65C200D5607C /* ViewController.swift in Sources */,
+				B682CA951DED6EA100D5607C /* LoginViewController.swift in Sources */,
+				B682CA7D1DED65C200D5607C /* MapViewController.swift in Sources */,
+				B682CA9F1DED71E900D5607C /* Meeting+CoreDataProperties.swift in Sources */,
+				B682CA9C1DED71E900D5607C /* User+CoreDataClass.swift in Sources */,
+				B682CA9E1DED71E900D5607C /* Meeting+CoreDataClass.swift in Sources */,
+				B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */,
 				B682CA831DED65C200D5607C /* Grubuddy.xcdatamodeld in Sources */,
 				B682CA7B1DED65C200D5607C /* AppDelegate.swift in Sources */,
+				B682CA971DED6ECC00D5607C /* MeetingDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
