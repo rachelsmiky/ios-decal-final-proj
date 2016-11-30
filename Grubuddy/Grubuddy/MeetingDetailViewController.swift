@@ -10,6 +10,9 @@ import UIKit
 
 class MeetingDetailViewController: UIViewController {
 
+    @IBOutlet weak var my_title: UILabel!
+    @IBOutlet weak var summary: UILabel!
+    @IBOutlet weak var members: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
