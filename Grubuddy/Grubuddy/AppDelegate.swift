@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        preloadData()
+        testFetching()
+        
         return true
     }
 
@@ -89,5 +93,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func preloadData () {
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "preloaded") {
+            return;
+        } else {
+            let context = persistentContainer.viewContext
+            let user1 = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+            user1.setValue("Kelvin", forKey: "name")
+            
+            let user2 = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+            user2.setValue("Erica", forKey: "name")
+            
+            let meeting1 = NSEntityDescription.insertNewObject(forEntityName: "Meeting", into: context)
+            meeting1.setValue("iOS Decal", forKey: "title")
+            meeting1.setValue(37.875827, forKey: "latitude")
+            meeting1.setValue(-122.258803, forKey: "longitude")
+            
+            var participants: Set = meeting1.value(forKey: "participants") as! Set<NSManagedObject>
+            participants.insert(user1)
+            participants.insert(user2)
+            meeting1.setValue(participants, forKey: "participants")
+            
+            var meetings1: Set = user1.value(forKey: "meetings") as! Set<NSManagedObject>
+            meetings1.insert(meeting1)
+            user1.setValue(meetings1, forKey: "meetings")
+            
+            var meetings2: Set = user1.value(forKey: "meetings") as! Set<NSManagedObject>
+            meetings2.insert(meeting1)
+            user2.setValue(meetings2, forKey: "meetings")
+            
+            self.saveContext()
+            userDefaults.set(true, forKey: "preloaded")
+        }
+        
+    }
+    
+    func testFetching () {
+        let userRequest: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let fetchedUsers = try persistentContainer.viewContext.fetch(userRequest)
+            print(fetchedUsers)
+        } catch {
+            fatalError("Failed to fetch users: \(error)")
+        }
+        
+        let meetingRequest: NSFetchRequest<Meeting> = Meeting.fetchRequest()
+        do {
+            let fetchedMeetings = try persistentContainer.viewContext.fetch(meetingRequest)
+            print(fetchedMeetings)
+        } catch {
+            fatalError("Failed to fetch meetings: \(error)")
+        }
+    }
 }
 

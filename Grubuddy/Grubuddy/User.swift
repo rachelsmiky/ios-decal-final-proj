@@ -1,5 +1,5 @@
 //
-//  Meeting+CoreDataClass.swift
+//  User+CoreDataClass.swift
 //  Grubuddy
 //
 //  Created by Kelvin Hong on 11/29/16.
@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
-public class Meeting: NSManagedObject {
+public class User: NSManagedObject {
 
 }

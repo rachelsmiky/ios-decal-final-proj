@@ -17,9 +17,9 @@
 		B682CA931DED6BF600D5607C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B682CA921DED6BF600D5607C /* MapKit.framework */; };
 		B682CA951DED6EA100D5607C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA941DED6EA100D5607C /* LoginViewController.swift */; };
 		B682CA971DED6ECC00D5607C /* MeetingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */; };
-		B682CA9C1DED71E900D5607C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA981DED71E900D5607C /* User+CoreDataClass.swift */; };
+		B682CA9C1DED71E900D5607C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA981DED71E900D5607C /* User.swift */; };
 		B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */; };
-		B682CA9E1DED71E900D5607C /* Meeting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9A1DED71E900D5607C /* Meeting+CoreDataClass.swift */; };
+		B682CA9E1DED71E900D5607C /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9A1DED71E900D5607C /* Meeting.swift */; };
 		B682CA9F1DED71E900D5607C /* Meeting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,9 +36,9 @@
 		B682CA921DED6BF600D5607C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B682CA941DED6EA100D5607C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingDetailViewController.swift; sourceTree = "<group>"; };
-		B682CA981DED71E900D5607C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B682CA981DED71E900D5607C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B682CA9A1DED71E900D5607C /* Meeting+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B682CA9A1DED71E900D5607C /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,9 +99,9 @@
 		B682CAA01DED727700D5607C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B682CA981DED71E900D5607C /* User+CoreDataClass.swift */,
+				B682CA981DED71E900D5607C /* User.swift */,
 				B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */,
-				B682CA9A1DED71E900D5607C /* Meeting+CoreDataClass.swift */,
+				B682CA9A1DED71E900D5607C /* Meeting.swift */,
 				B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */,
 			);
 			name = Model;
@@ -192,8 +192,8 @@
 				B682CA951DED6EA100D5607C /* LoginViewController.swift in Sources */,
 				B682CA7D1DED65C200D5607C /* MapViewController.swift in Sources */,
 				B682CA9F1DED71E900D5607C /* Meeting+CoreDataProperties.swift in Sources */,
-				B682CA9C1DED71E900D5607C /* User+CoreDataClass.swift in Sources */,
-				B682CA9E1DED71E900D5607C /* Meeting+CoreDataClass.swift in Sources */,
+				B682CA9C1DED71E900D5607C /* User.swift in Sources */,
+				B682CA9E1DED71E900D5607C /* Meeting.swift in Sources */,
 				B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */,
 				B682CA831DED65C200D5607C /* Grubuddy.xcdatamodeld in Sources */,
 				B682CA7B1DED65C200D5607C /* AppDelegate.swift in Sources */,
