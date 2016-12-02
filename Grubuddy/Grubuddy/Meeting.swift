@@ -18,4 +18,10 @@ public class Meeting: NSManagedObject, MKAnnotation {
         }
     }
     
+    public var subtitle: String? {
+        get {
+            return summary
+        }
+    }
+    
 }

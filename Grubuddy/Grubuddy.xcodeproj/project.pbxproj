@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B62A4AC31DF0F6B100D9B1E5 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62A4AC21DF0F6B100D9B1E5 /* SearchTableViewController.swift */; };
 		B682CA7B1DED65C200D5607C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA7A1DED65C200D5607C /* AppDelegate.swift */; };
 		B682CA7D1DED65C200D5607C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA7C1DED65C200D5607C /* MapViewController.swift */; };
 		B682CA801DED65C200D5607C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B682CA7E1DED65C200D5607C /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B62A4AC21DF0F6B100D9B1E5 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		B682CA771DED65C200D5607C /* Grubuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grubuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B682CA7A1DED65C200D5607C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B682CA7C1DED65C200D5607C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				B682CA7C1DED65C200D5607C /* MapViewController.swift */,
 				B682CA941DED6EA100D5607C /* LoginViewController.swift */,
 				B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */,
+				B62A4AC21DF0F6B100D9B1E5 /* SearchTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				B682CA9E1DED71E900D5607C /* Meeting.swift in Sources */,
 				B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */,
 				B682CA831DED65C200D5607C /* Grubuddy.xcdatamodeld in Sources */,
+				B62A4AC31DF0F6B100D9B1E5 /* SearchTableViewController.swift in Sources */,
 				B682CA7B1DED65C200D5607C /* AppDelegate.swift in Sources */,
 				B682CA971DED6ECC00D5607C /* MeetingDetailViewController.swift in Sources */,
 			);
@@ -361,6 +365,7 @@
 				B682CA8E1DED65C200D5607C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
