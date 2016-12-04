@@ -100,30 +100,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return;
         } else {
             let context = persistentContainer.viewContext
-            let user1 = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
-            user1.setValue("Kelvin", forKey: "name")
-            
-            let user2 = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
-            user2.setValue("Erica", forKey: "name")
-            
             let meeting1 = NSEntityDescription.insertNewObject(forEntityName: "Meeting", into: context)
             meeting1.setValue("iOS Decal", forKey: "title")
             meeting1.setValue(37.875827, forKey: "latitude")
             meeting1.setValue(-122.258803, forKey: "longitude")
-            
-            var participants: Set = meeting1.value(forKey: "participants") as! Set<NSManagedObject>
-            participants.insert(user1)
-            participants.insert(user2)
-            meeting1.setValue(participants, forKey: "participants")
-            
-            var meetings1: Set = user1.value(forKey: "meetings") as! Set<NSManagedObject>
-            meetings1.insert(meeting1)
-            user1.setValue(meetings1, forKey: "meetings")
-            
-            var meetings2: Set = user1.value(forKey: "meetings") as! Set<NSManagedObject>
-            meetings2.insert(meeting1)
-            user2.setValue(meetings2, forKey: "meetings")
-            
+            let participants = meeting1.mutableSetValue(forKey: "participants")
+            for name in ["Kelvin", "Erica", "Van", "Rachel"] {
+                let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+                user.setValue(name, forKey: "name")
+                participants.add(user)
+            }
             self.saveContext()
             userDefaults.set(true, forKey: "preloaded")
         }
