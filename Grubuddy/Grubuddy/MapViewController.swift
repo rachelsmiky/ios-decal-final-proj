@@ -16,7 +16,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager = CLLocationManager()
     var mapCentered = false
     var resultSearchController:UISearchController? = nil
-    
+    var searchResultPlacemark: MKAnnotation? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
         loadAnnotaions()
+        loadSearchBar()
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkLocationAuthorizationStatus()
+    }
+    
+    func loadSearchBar () {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "SearchTableViewController") as! SearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -43,12 +52,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        checkLocationAuthorizationStatus()
+        locationSearchTable.didSelectItem = { (item: MKPlacemark) -> () in
+            self.removeSearchResult()
+            self.insertSearchResult(item)
+        }
     }
     
     func checkLocationAuthorizationStatus() {
@@ -70,6 +78,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    // TODO: refactor this to use NSFetchedResultController
+    
     func loadAnnotaions () {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -82,25 +92,68 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             fatalError("Failed to fetch meetings: \(error)")
         }
     }
-
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? Meeting {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView { // 2
-                dequeuedView.annotation = annotation
-                view = dequeuedView
+        let identifier = "pin"
+        var view: MKPinAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKPinAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            
+            var button: UIButton? = nil
+            
+            if annotation is Meeting {
+                button = UIButton(type:.detailDisclosure)
             } else {
-                // 3
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type:.detailDisclosure)
+                button = UIButton(type:.contactAdd)
+                view.pinTintColor = UIColor.green
             }
-            return view
+            
+            view.rightCalloutAccessoryView = button
         }
-        return nil
+        return view
     }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if let annotation = view.annotation {
+            if annotation is Meeting {
+                
+                // TODO: push to new controller
+                
+                print("\(annotation) tapped, pushing to detail")
+            } else {
+                
+                // TODO: push to new controller
+
+                print("\(annotation) tapped, pushing to new meeting view")
+            }
+        }
+    }
+    
+    func insertSearchResult(_ item: MKPlacemark) {
+        let annotaion = MKPointAnnotation()
+        annotaion.coordinate = item.coordinate
+        annotaion.title = item.name
+        annotaion.subtitle = item.title
+        
+        searchResultPlacemark = annotaion
+        mapView.addAnnotation(annotaion)
+        centerMap(withLocation: CLLocation.init(latitude: annotaion.coordinate.latitude, longitude: annotaion.coordinate.longitude))
+        mapView.selectAnnotation(annotaion, animated: true)
+    }
+    
+    func removeSearchResult() {
+        if let searchResultPlacemark = searchResultPlacemark {
+            mapView.removeAnnotation(searchResultPlacemark)
+            self.searchResultPlacemark = nil
+        }
+    }
+
 }
 

@@ -22,6 +22,7 @@
 		B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */; };
 		B682CA9E1DED71E900D5607C /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9A1DED71E900D5607C /* Meeting.swift */; };
 		B682CA9F1DED71E900D5607C /* Meeting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */; };
+		B6C64DEA1DF3C4BA00663816 /* NewMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C64DE91DF3C4BA00663816 /* NewMeetingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		B682CA991DED71E900D5607C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B682CA9A1DED71E900D5607C /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		B682CA9B1DED71E900D5607C /* Meeting+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meeting+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B6C64DE91DF3C4BA00663816 /* NewMeetingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMeetingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B682CA941DED6EA100D5607C /* LoginViewController.swift */,
 				B682CA961DED6ECC00D5607C /* MeetingDetailViewController.swift */,
 				B62A4AC21DF0F6B100D9B1E5 /* SearchTableViewController.swift */,
+				B6C64DE91DF3C4BA00663816 /* NewMeetingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				B682CA9D1DED71E900D5607C /* User+CoreDataProperties.swift in Sources */,
 				B682CA831DED65C200D5607C /* Grubuddy.xcdatamodeld in Sources */,
 				B62A4AC31DF0F6B100D9B1E5 /* SearchTableViewController.swift in Sources */,
+				B6C64DEA1DF3C4BA00663816 /* NewMeetingViewController.swift in Sources */,
 				B682CA7B1DED65C200D5607C /* AppDelegate.swift in Sources */,
 				B682CA971DED6ECC00D5607C /* MeetingDetailViewController.swift in Sources */,
 			);
