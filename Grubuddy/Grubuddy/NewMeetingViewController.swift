@@ -28,6 +28,9 @@ class NewMeetingViewController: UIViewController {
 
     @IBAction func submit(_ sender: AnyObject) {
         createMeeting(withTitle: meetingTitle.text!, summary: meetingSummary.text!, date: meetingTime.date,coordinate: annotation!.coordinate)
+        
+        
+        dismiss(animated: true, completion: nil)
     }
     func createMeeting(withTitle title: String, summary: String?, date: Date?, coordinate: CLLocationCoordinate2D) {
         
