@@ -19,7 +19,7 @@ class MeetingDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        updateView()
     }
     
     @IBAction func applyToAttend(_ sender: AnyObject) {
@@ -29,6 +29,12 @@ class MeetingDetailViewController: UIViewController {
     func updateView () {
         
         // TODO: update labels
-        
+        my_title.text = meeting?.title
+        summary.text = meeting?.summary
+        var participants = ""
+        for user in (meeting?.participants as! Set<User>) {
+            participants += user.name!
+        }
+        members.text = participants
     }
 }
