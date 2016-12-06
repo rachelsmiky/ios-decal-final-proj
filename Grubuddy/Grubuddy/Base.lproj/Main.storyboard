@@ -172,7 +172,7 @@
         <!--Login View Controller-->
         <scene sceneID="ERP-RM-Mnw">
             <objects>
-                <viewController id="ptb-4N-dGN" customClass="LoginViewController" customModule="Grubuddy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="ptb-4N-dGN" customClass="LoginViewController" customModule="Grubuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aLB-OQ-80Y"/>
                         <viewControllerLayoutGuide type="bottom" id="dBy-U2-KPm"/>
