@@ -10,9 +10,10 @@ import UIKit
 import CoreData
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, NSFetchedResultsControllerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    var fetchedResultController: NSFetchedResultsController<Meeting>? = nil
     var locationManager = CLLocationManager()
     var mapCentered = false
     var resultSearchController:UISearchController? = nil
@@ -77,19 +78,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapCentered = true
         }
     }
-    
-    // TODO: refactor this to use NSFetchedResultController
-    
+        
     func loadAnnotaions () {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let meetingRequest: NSFetchRequest<Meeting> = Meeting.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        meetingRequest.sortDescriptors = [sortDescriptor]
+        
+        // load existing meetings
+        
         do {
             let fetchedMeetings = try context.fetch(meetingRequest)
             print(fetchedMeetings)
             mapView.addAnnotations(fetchedMeetings)
         } catch {
             fatalError("Failed to fetch meetings: \(error)")
+        }
+        
+        // track for changes
+        
+        fetchedResultController = NSFetchedResultsController(fetchRequest: meetingRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultController?.delegate = self
+        do {
+            try fetchedResultController?.performFetch()
+        } catch {
+            
         }
     }
     
@@ -155,5 +169,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
 
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        // Only support insert for now
+        if type == .insert {
+            if let anObject = anObject as? MKAnnotation {
+                mapView.addAnnotation(anObject)
+            }
+        }
+    }
+    
 }
 
