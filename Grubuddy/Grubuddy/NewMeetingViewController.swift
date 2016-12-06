@@ -14,9 +14,16 @@ class NewMeetingViewController: UIViewController {
 
     var annotation: MKAnnotation? = nil
     
+    @IBOutlet weak var meetingTime: UIDatePicker!
+    
+    @IBOutlet weak var meetingTitle: UITextField!
+    
+    @IBOutlet weak var meetingSummary: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: initialize labels using the given annotation
+        createMeeting(withTitle: meetingTitle.text!, summary: meetingSummary.text!, date: meetingTime.date,coordinate: annotation!.coordinate)
     }
 
     func createMeeting(withTitle title: String, summary: String?, date: Date?, coordinate: CLLocationCoordinate2D) {

@@ -130,7 +130,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             } else {
                 
                 // TODO: push to new controller
-
+                
                 print("\(annotation) tapped, pushing to new meeting view")
             }
         }
