@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var mapCentered = false
     var resultSearchController:UISearchController? = nil
     var searchResultPlacemark: MKAnnotation? = nil
+    var meeting: Meeting? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,7 +138,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         if let annotation = view.annotation {
             if annotation is Meeting {
-                
+                meeting = annotation as! Meeting
+                performSegue(withIdentifier: "showDetail", sender: self)
                 // TODO: push to new controller
                 
                 print("\(annotation) tapped, pushing to detail")
@@ -147,6 +149,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
                 print("\(annotation) tapped, pushing to new meeting view")
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?) {
+        if segue.identifier == "showDetail" {
+            let targetVC = segue.destination as! MeetingDetailViewController
+            targetVC.meeting = meeting
         }
     }
     
