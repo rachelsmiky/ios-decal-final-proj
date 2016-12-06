@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     @IBAction func login(_ sender: AnyObject) {
+        login(withUsername: username.text!, password: password.text!)
+        dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,25 @@ class LoginViewController: UIViewController {
             //       3. if no matched user is found, create a new one, using NSEntityDescription.insertNewObject
             //       4. store user in AppDelegate
             
-            dismiss(animated: true, completion: nil)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let userRequest: NSFetchRequest<User> = User.fetchRequest()
+            let userPredicate: NSPredicate = NSPredicate(format: "name == %@", username)
+            userRequest.predicate = userPredicate
+            
+            do {
+                let fetchedUsers = try context.fetch(userRequest)
+                print(fetchedUsers)
+                if fetchedUsers == [] {
+                    let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
+                    user.setValue(username, forKey: "name")
+                    appDelegate.currentUser = user as! User
+                } else {
+                    appDelegate.currentUser = fetchedUsers[0]
+                }
+            } catch {
+                fatalError("Failed to fetch users: \(error)")
+            }
         }
     }
 

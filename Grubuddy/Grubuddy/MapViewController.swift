@@ -24,6 +24,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+        self.present(vc, animated: true, completion: nil)
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
             locationManager.delegate = self
@@ -40,11 +44,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidAppear(animated)
         
         // Switch to Login page
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
-        self.present(vc, animated: true, completion: nil)
+        
         
         checkLocationAuthorizationStatus()
+
     }
     
     func loadSearchBar () {
