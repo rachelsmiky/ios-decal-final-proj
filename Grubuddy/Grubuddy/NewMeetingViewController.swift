@@ -16,7 +16,6 @@ class NewMeetingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // TODO: initialize labels using the given annotation
     }
 
