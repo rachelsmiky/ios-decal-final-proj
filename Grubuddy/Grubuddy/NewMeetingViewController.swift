@@ -23,9 +23,12 @@ class NewMeetingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: initialize labels using the given annotation
-        createMeeting(withTitle: meetingTitle.text!, summary: meetingSummary.text!, date: meetingTime.date,coordinate: annotation!.coordinate)
+        
     }
 
+    @IBAction func submit(_ sender: AnyObject) {
+        createMeeting(withTitle: meetingTitle.text!, summary: meetingSummary.text!, date: meetingTime.date,coordinate: annotation!.coordinate)
+    }
     func createMeeting(withTitle title: String, summary: String?, date: Date?, coordinate: CLLocationCoordinate2D) {
         
         // TODO: insert entity into core data

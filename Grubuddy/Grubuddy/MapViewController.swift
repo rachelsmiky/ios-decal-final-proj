@@ -146,8 +146,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             } else {
                 
                 // TODO: push to new controller
-                
                 print("\(annotation) tapped, pushing to new meeting view")
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "nextView") as! NewMeetingViewController
+                nextViewController.annotation = annotation
+                self.present(nextViewController, animated:true, completion:nil)
+                
             }
         }
     }
