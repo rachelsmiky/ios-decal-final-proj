@@ -36,9 +36,11 @@ class MeetingDetailViewController: UIViewController {
         my_title.text = meeting?.title
         summary.text = meeting?.summary
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM dd, yyy hh:mm a"
-        timeLabel.text = dateFormatter.string(from: (meeting?.date)!)
+        if let date = meeting?.date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE, MMM dd, yyy hh:mm a"
+            timeLabel.text = dateFormatter.string(from: date)
+        }
         
         var participants: Array<String> = []
         for user in (meeting?.participants as! Set<User>) {
