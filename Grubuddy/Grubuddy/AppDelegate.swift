@@ -104,6 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             meeting1.setValue("iOS Decal", forKey: "title")
             meeting1.setValue(37.875827, forKey: "latitude")
             meeting1.setValue(-122.258803, forKey: "longitude")
+            meeting1.setValue(Date(), forKey: "date")
             let participants = meeting1.mutableSetValue(forKey: "participants")
             for name in ["Kelvin", "Erica", "Van", "Rachel"] {
                 let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
@@ -112,22 +113,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             self.saveContext()
             userDefaults.set(true, forKey: "preloaded")
-            
-            let deadlineTime = DispatchTime.now() + .seconds(30)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                print("test")
-                let meeting1 = NSEntityDescription.insertNewObject(forEntityName: "Meeting", into: context)
-                meeting1.setValue("iOS Decal", forKey: "title")
-                meeting1.setValue(37.875827, forKey: "latitude")
-                meeting1.setValue(-122.260803, forKey: "longitude")
-                let participants = meeting1.mutableSetValue(forKey: "participants")
-                for name in ["Kelvin", "Erica", "Van", "Rachel"] {
-                    let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
-                    user.setValue(name, forKey: "name")
-                    participants.add(user)
-                }
-                self.saveContext()
-            }
         }
         
     }

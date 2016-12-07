@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
                     let user = NSEntityDescription.insertNewObject(forEntityName: "User", into: context)
                     user.setValue(username, forKey: "name")
                     appDelegate.currentUser = user as! User
+                    appDelegate.saveContext()
                 } else {
                     appDelegate.currentUser = fetchedUsers[0]
                 }

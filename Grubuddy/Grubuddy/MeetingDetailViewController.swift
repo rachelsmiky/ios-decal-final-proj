@@ -14,6 +14,7 @@ class MeetingDetailViewController: UIViewController {
     @IBOutlet weak var my_title: UILabel!
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var members: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +24,27 @@ class MeetingDetailViewController: UIViewController {
     }
     
     @IBAction func applyToAttend(_ sender: AnyObject) {
-    
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if let user = appDelegate.currentUser {
+            meeting?.addToParticipants(user)
+            updateView()
+        }
     }
 
     func updateView () {
         
-        // TODO: update labels
         my_title.text = meeting?.title
         summary.text = meeting?.summary
-        var participants = ""
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM dd, yyy hh:mm a"
+        timeLabel.text = dateFormatter.string(from: (meeting?.date)!)
+        
+        var participants: Array<String> = []
         for user in (meeting?.participants as! Set<User>) {
-            participants += user.name!
+            participants.append(user.name!)
         }
-        members.text = participants
+        
+        members.text = participants.joined(separator: "\n")
     }
 }

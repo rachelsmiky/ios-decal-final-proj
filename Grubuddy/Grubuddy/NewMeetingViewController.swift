@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MapKit
 
-class NewMeetingViewController: UIViewController {
+class NewMeetingViewController: UITableViewController {
 
     var annotation: MKAnnotation? = nil
     
@@ -18,7 +18,7 @@ class NewMeetingViewController: UIViewController {
     
     @IBOutlet weak var meetingTitle: UITextField!
     
-    @IBOutlet weak var meetingSummary: UITextView!
+    @IBOutlet weak var meetingSummary: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,27 @@ class NewMeetingViewController: UIViewController {
     }
 
     @IBAction func submit(_ sender: AnyObject) {
-        createMeeting(withTitle: meetingTitle.text!, summary: meetingSummary.text!, date: meetingTime.date,coordinate: annotation!.coordinate)
+        createMeeting(withTitle: meetingTitle.text!,
+                      summary: meetingSummary.text!,
+                      date: meetingTime.date,
+                      coordinate: annotation!.coordinate)
         
-        
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     func createMeeting(withTitle title: String, summary: String?, date: Date?, coordinate: CLLocationCoordinate2D) {
         
-        // TODO: insert entity into core data
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let meeting = NSEntityDescription.insertNewObject(forEntityName: "Meeting", into: context)
+        meeting.setValue(title, forKey: "title")
+        meeting.setValue(summary, forKey: "summary")
+        meeting.setValue(date, forKey: "date")
+        meeting.setValue(coordinate.latitude, forKey: "latitude")
+        meeting.setValue(coordinate.longitude, forKey: "longitude")
+        let participants = meeting.mutableSetValue(forKey: "participants")
+        participants.add(appDelegate.currentUser!)
+        
+        appDelegate.saveContext()
     }
     
 }

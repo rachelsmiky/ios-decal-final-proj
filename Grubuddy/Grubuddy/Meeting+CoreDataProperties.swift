@@ -18,7 +18,7 @@ extension Meeting {
 
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
-    @NSManaged public var date: NSDate?
+    @NSManaged public var date: Date?
     @NSManaged public var title: String?
     @NSManaged public var summary: String?
     @NSManaged public var participants: NSSet?
