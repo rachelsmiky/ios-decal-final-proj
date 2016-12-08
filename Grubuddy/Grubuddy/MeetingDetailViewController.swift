@@ -27,6 +27,7 @@ class MeetingDetailViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if let user = appDelegate.currentUser {
             meeting?.addToParticipants(user)
+            appDelegate.saveContext()
             updateView()
         }
     }

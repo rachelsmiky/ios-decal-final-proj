@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(_ sender: AnyObject) {
         login(withUsername: username.text!, password: password.text!)
-        dismiss(animated: true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,11 +26,6 @@ class LoginViewController: UIViewController {
     
     func login(withUsername username: String, password: String) {
         if username.characters.count > 0 && password.characters.count > 0 {
-            
-            // TODO: 1. create a NSFetchRequest
-            //       2. Add a predicate to the fetch request
-            //       3. if no matched user is found, create a new one, using NSEntityDescription.insertNewObject
-            //       4. store user in AppDelegate
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
@@ -52,6 +47,7 @@ class LoginViewController: UIViewController {
             } catch {
                 fatalError("Failed to fetch users: \(error)")
             }
+            dismiss(animated: true, completion: nil)
         }
     }
 

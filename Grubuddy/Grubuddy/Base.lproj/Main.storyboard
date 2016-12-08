@@ -143,7 +143,7 @@
                             <constraint firstItem="2hI-87-Zx9" firstAttribute="top" secondItem="68u-Z7-pr2" secondAttribute="bottom" constant="20" id="kqF-Fx-XPV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XDP-0I-dK2" secondAttribute="trailing" constant="114" id="oTr-WP-Wfq"/>
                             <constraint firstItem="r4J-NT-VyM" firstAttribute="top" secondItem="yWD-ZD-luZ" secondAttribute="bottom" constant="26" id="q1O-Lj-Ce5"/>
-                            <constraint firstItem="68u-Z7-pr2" firstAttribute="top" secondItem="r4J-NT-VyM" secondAttribute="bottom" constant="20" id="uHj-jP-nqR"/>
+                            <constraint firstItem="68u-Z7-pr2" firstAttribute="top" secondItem="r4J-NT-VyM" secondAttribute="bottom" constant="8" id="uHj-jP-nqR"/>
                             <constraint firstItem="Fcr-Uc-Zxn" firstAttribute="top" secondItem="2hI-87-Zx9" secondAttribute="bottom" constant="49" id="xlW-Kc-k4B"/>
                         </constraints>
                     </view>
@@ -214,7 +214,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdU-eI-5xD">
                                 <frame key="frameInset" minX="164" minY="245" width="46" height="30"/>
@@ -269,7 +269,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kua-RW-Uwx">
-                                                    <frame key="frameInset" minX="80" minY="6" width="287" height="30"/>
+                                                    <frame key="frameInset" minX="80" width="287" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -293,7 +293,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n0c-zd-Dt1">
-                                                    <frame key="frameInset" minX="106" minY="6" width="261" height="30"/>
+                                                    <frame key="frameInset" minX="106" width="261" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

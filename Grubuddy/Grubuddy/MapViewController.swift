@@ -190,6 +190,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if type == .insert {
             if let anObject = anObject as? MKAnnotation {
                 mapView.addAnnotation(anObject)
+                removeSearchResult()
+                mapView.selectAnnotation(anObject, animated: true)
             }
         }
     }
